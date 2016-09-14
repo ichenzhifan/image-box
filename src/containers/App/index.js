@@ -3,7 +3,7 @@
  */
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {addTodo, completeTodo, setVisibilityFilter} from '../../actions/actions';
+import {addTodo, completeTodo, setVisibilityFilter} from '../../actions/todoActions';
 import actionTypes from '../../contants/actionTypes';
 import visibilityFilters  from '../../contants/visibilityFilters';
 import 'normalize.css';
@@ -11,12 +11,20 @@ import 'normalize.css';
 import AddTodo from '../../components/AddTodo/index';
 import TodoList from '../../components/TodoList/index';
 import Footer from '../../components/Footer/index';
+import {fetchPosts} from '../../actions/todoActions';
 import './index.less';
 
 class App extends Component {
+
+  componentWillMount() {
+    const {dispatch} = this.props;
+    dispatch(fetchPosts('../../sources/data.json'));
+  }
+
   render() {
     // Injected by connect() call:
     const {dispatch, visibleTodos, visibilityFilter} = this.props;
+
     return (
       <div>
         <AddTodo
@@ -64,6 +72,7 @@ function selectTodos(todos, filter) {
 // Which props do we want to inject, given the global state?
 // Note: use https://github.com/faassen/reselect for better performance.
 function select(state) {
+  console.log(state);
   return {
     visibleTodos: selectTodos(state.todos, state.visibilityFilter),
     visibilityFilter: state.visibilityFilter
