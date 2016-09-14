@@ -15,4 +15,4 @@ const createStoreWithMiddleware = applyMiddleware(
 
 export default function configureStore(initialState) {
   return createStoreWithMiddleware(rootReducer, initialState)
-};
+}

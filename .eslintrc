@@ -1,16 +1,18 @@
 {
+  "parser": "babel-eslint",
   "plugins": [
     "react"
   ],
-  "ecmaFeatures": {
-    "jsx": true,
-    "modules": true
-  },
+//  "extends": "eslint-config-airbnb-es5",
   "env": {
     "browser": true,
     "amd": true,
     "es6": true,
     "node": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "allowImportExportEverywhere": false
   },
   "rules": {
     "comma-dangle": 1,
@@ -47,6 +49,7 @@
   "react/display-name": [2, { "acceptTranspilerName": true }],
     "react/jsx-boolean-value": [2, "always"], // TODO
     "react/jsx-no-undef": 2,
+    "react/jsx-quotes": [1, "single"],
     "react/jsx-sort-prop-types": 0,
     "react/jsx-sort-props": 0,
     "react/jsx-uses-react": [ 2 ],
@@ -77,7 +80,7 @@
          "contexts": [
            "contextTypes",
            "childContextTypes",
-           "getChildContext",
+           "getChildContext"
          ],
          "lifecycle": [
            "componentWillMount",
@@ -86,24 +89,24 @@
            "shouldComponentUpdate",
            "componentWillUpdate",
            "componentDidUpdate",
-           "componentWillUnmount",
+           "componentWillUnmount"
          ],
          "listeners": [
-           "/^on.+$/",
+           "/^on.+$/"
          ],
          "props": [
            "propTypes",
            "defaultProps",
-           "getDefaultProps",
+           "getDefaultProps"
          ],
          "renderers": [
            "/^render.+$/",
-           "render",
+           "render"
          ],
          "state": [
            "state",
-           "getInitialState",
+           "getInitialState"
          ]
        }
-     }],
+     }]
 }

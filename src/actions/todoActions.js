@@ -1,6 +1,3 @@
-/**
- * Created by Administrator on 2016/9/13.
- */
 import fetch from 'isomorphic-fetch';
 import actionTypes from '../contants/actionTypes';
 import visibilityFilters  from '../contants/visibilityFilters';

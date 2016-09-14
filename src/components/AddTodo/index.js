@@ -2,7 +2,7 @@
  * Created by Administrator on 2016/9/13.
  */
 import React, { Component, PropTypes } from 'react';
-import './index.less';
+import './index.scss';
 
 export default class AddTodo extends Component {
   render() {

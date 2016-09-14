@@ -12,7 +12,7 @@ import AddTodo from '../../components/AddTodo/index';
 import TodoList from '../../components/TodoList/index';
 import Footer from '../../components/Footer/index';
 import {fetchPosts} from '../../actions/todoActions';
-import './index.less';
+import './index.scss';
 
 class App extends Component {
 
