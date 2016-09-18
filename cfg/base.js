@@ -1,33 +1,23 @@
+var autoprefixer = require('autoprefixer');
 var path = require('path');
-
 var port = 8000;
 var srcPath = path.join(__dirname, '/../src');
-var publicPath = '/assets/';
 
 module.exports = {
   port: port,
   debug: true,
-  output: {
-    path: path.join(__dirname, '/../dist/assets'),
-    filename: 'app.js', //'app.js',
-    publicPath: publicPath
-  },
   devServer: {
-    contentBase: './src/',
     historyApiFallback: true,
     hot: true,
     port: port,
-    publicPath: publicPath,
     noInfo: false
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
-    alias: {
-      actions: srcPath + '/actions/',
-      components: srcPath + '/components/',
-      sources: srcPath + '/sources/',
-      stores: srcPath + '/stores/',
-      styles: srcPath + '/styles/'
+    extensions: ['', '.js', '.jsx']
+  },
+  postcss () {
+    return {
+      defaults: [autoprefixer]
     }
   },
   module: {
@@ -45,15 +35,15 @@ module.exports = {
       },
       {
         test: /\.sass/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax'
+        loader: 'style-loader!css-loader!postcss!sass-loader?outputStyle=expanded&indentedSyntax'
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+        loader: 'style-loader!css-loader!postcss!sass-loader?outputStyle=expanded'
       },
       {
         test: /\.less/,
-        loader: 'style-loader!css-loader!less-loader'
+        loader: 'style-loader!css-loader!postcss!less-loader'
       },
       {
         test: /\.styl/,

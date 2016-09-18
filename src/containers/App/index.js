@@ -2,6 +2,8 @@
  * Created by Administrator on 2016/9/13.
  */
 import React, {Component, PropTypes} from 'react';
+import {shouldComponentUpdate} from 'react-immutable-render-mixin';
+
 import {connect} from 'react-redux';
 import {addTodo, completeTodo, setVisibilityFilter} from '../../actions/todoActions';
 import actionTypes from '../../contants/actionTypes';
@@ -15,10 +17,16 @@ import {fetchPosts} from '../../actions/todoActions';
 import './index.scss';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.shouldComponentUpdate = shouldComponentUpdate.bind(this);
+  }
 
   componentWillMount() {
     const {dispatch} = this.props;
-    dispatch(fetchPosts('../../sources/data.json'));
+
+    // 测试数据.
+    dispatch(fetchPosts('../../src/sources/data.json'));
   }
 
   render() {
@@ -26,7 +34,7 @@ class App extends Component {
     const {dispatch, visibleTodos, visibilityFilter} = this.props;
 
     return (
-      <div>
+      <div className="app">
         <AddTodo
           onAddClick={text =>
             dispatch(addTodo(text))

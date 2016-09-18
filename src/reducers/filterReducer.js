@@ -5,7 +5,7 @@ import actionTypes from '../contants/actionTypes';
 import {SHOW_ALL}  from '../contants/visibilityFilters';
 
 /**
- *  创建filter的reducer.
+ * 创建filter的reducer.
  * @param state 下一个的state
  * @param action 下一个的action
  * @returns {*}

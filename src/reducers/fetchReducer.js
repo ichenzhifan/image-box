@@ -1,6 +1,11 @@
 import assign from 'object-assign';
 import actionTypes from '../contants/actionTypes';
 
+/**
+ * 用来处理ajax请求的reducer.
+ * @param state
+ * @param action
+ */
 export default function async(state = {}, action) {
   switch (action.type) {
     case actionTypes.FETCH_REQUEST:

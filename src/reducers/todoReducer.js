@@ -3,7 +3,7 @@ import {ADD_TODO, COMPLETE_TODO} from '../actions/todoActions';
 import actionTypes from '../contants/actionTypes';
 
 /**
- * 创建todos 列表的reducer
+ * 创建todos列表的reducer
  * @param state
  * @param action
  */
